@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created with Recipe Robot v2.3.1 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Description</key>
+	<string>Hoppscotch Desktop App is a cross-platform desktop application that helps you create and manage API requests. Downloads the latest version of Hoppscotch.
+
+To download Intel use: "x86" in the ARCHITECTURE and "x86" in DOWNLOAD_ARCH variable (Blank value)
+
+To Download Apple Silicon use: "arm64" in the ARCHITECTURE and "aarch64" in DOWNLOAD_ARCH variable (Default value)</string>
+	<key>Identifier</key>
+	<string>com.github.gilburns.download.Hoppscotch</string>
+	<key>Input</key>
+	<dict>
+		<key>ARCHITECTURE</key>
+		<string>arm64</string>
+		<key>DOWNLOAD_ARCH</key>
+		<string>aarch64</string>
+		<key>NAME</key>
+		<string>Hoppscotch</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>2.3</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>asset_regex</key>
+				<string>Hoppscotch_mac_%DOWNLOAD_ARCH%\.dmg</string>
+				<key>github_repo</key>
+				<string>hoppscotch/releases</string>
+			</dict>
+			<key>Processor</key>
+			<string>GitHubReleasesInfoProvider</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%-%version%.dmg</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pathname%/Hoppscotch.app</string>
+				<key>requirement</key>
+				<string>identifier "io.hoppscotch.desktop" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = XBK86CMQGZ</string>
+			</dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%pathname%/Hoppscotch.app/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleVersion</string>
+			</dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+		</dict>
+	</array>
+</dict>
+</plist>
