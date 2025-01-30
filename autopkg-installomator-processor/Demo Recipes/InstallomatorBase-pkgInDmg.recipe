@@ -1,0 +1,49 @@
+<plist version="1.0">
+<dict>
+    <key>Identifier</key>
+    <string>com.example.installomator-pkgInDmg</string>
+    <key>Description</key>
+    <string>Base recipe for processing Installomator labels that result in a PKG that is inside a DMG download.</string>
+    <key>Input</key>
+    <dict>
+        <key>LABEL_NAME</key>
+        <string>uviportal</string>
+        <key>local_label_path</key>
+        <string>/usr/local/Installomator/labels</string>
+    </dict>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>LabelResolver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>label_name</key>
+                <string>%LABEL_NAME%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>%downloadURL%</string>
+                <key>filename</key>
+                <string>%name%.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>LabelVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>downloaded_file_path</key>
+                <string>%pathname%</string>
+                <key>expectedTeamID</key>
+                <string>%expectedTeamID%</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
