@@ -1,13 +1,13 @@
 <plist version="1.0">
 <dict>
     <key>Identifier</key>
-    <string>com.example.installomator-zip</string>
+    <string>com.example.installomator-appInDmgInZip</string>
     <key>Description</key>
-    <string>Base recipe for processing Installomator labels where the download is a ZIP containing an APP.</string>
+    <string>Base recipe for processing Installomator labels where the download is a ZIP containing a DMG that contains an APP.</string>
     <key>Input</key>
     <dict>
         <key>LABEL_NAME</key>
-        <string>coconutbattery</string>
+        <string>weprint</string>
         <key>local_label_path</key>
         <string>/usr/local/Installomator/labels</string>
     </dict>
@@ -15,7 +15,7 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>LabelResolver</string>
+            <string>com.github.gilburns.recipes.SharedProcessors/LabelResolver</string>
             <key>Arguments</key>
             <dict>
                 <key>label_name</key>
@@ -50,12 +50,12 @@
             <key>Arguments</key>
             <dict>
                 <key>pattern</key>
-                <string>%RECIPE_CACHE_DIR%/*.app</string>
+                <string>%RECIPE_CACHE_DIR%/*.dmg</string>
             </dict>
         </dict>
         <dict>
             <key>Processor</key>
-            <string>LabelVerifier</string>
+            <string>com.github.gilburns.recipes.SharedProcessors/LabelVerifier</string>
             <key>Arguments</key>
             <dict>
                 <key>downloaded_file_path</key>

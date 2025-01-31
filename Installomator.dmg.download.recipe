@@ -22,7 +22,7 @@
 				<string>%LABEL_NAME%</string>
 			</dict>
 			<key>Processor</key>
-			<string>com.github.gilburns.recipes.InstallomatorLabelProcessors/LabelResolver</string>
+			<string>com.github.gilburns.recipes.SharedProcessors/LabelResolver</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
@@ -44,7 +44,7 @@
 				<string>%expectedTeamID%</string>
 			</dict>
 			<key>Processor</key>
-			<string>com.github.gilburns.recipes.InstallomatorLabelProcessors/LabelVerifier</string>
+			<string>com.github.gilburns.recipes.SharedProcessors/LabelVerifier</string>
 		</dict>
 	</array>
 </dict>

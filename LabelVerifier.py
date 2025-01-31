@@ -1,7 +1,11 @@
+#!/usr/local/autopkg/python
+
 import subprocess
 import os
 import re
 from autopkglib import Processor, ProcessorError, DmgMounter
+
+__all__ = ["LabelVerifier"]
 
 class LabelVerifier(DmgMounter):
     """Verifies the Team ID of a downloaded macOS package or application using spctl.
@@ -65,3 +69,7 @@ class LabelVerifier(DmgMounter):
                     self.output(f"Warning: Failed to unmount {mount_point}. Error: {unmount_result.stderr}")
                 else:
                     self.output(f"Successfully unmounted {mount_point}")
+
+if __name__ == '__main__':
+    PROCESSOR = LabelVerifier()
+    PROCESSOR.execute_shell()

@@ -1,7 +1,11 @@
+#!/usr/local/autopkg/python
+
 import subprocess
 import json
 import os
 from autopkglib import Processor, ProcessorError
+
+__all__ = ["LabelResolver"]
 
 class LabelResolver(Processor):
     """Resolves Installomator labels into variables."""
@@ -85,3 +89,8 @@ class LabelResolver(Processor):
             raise ProcessorError(f"Error resolving label: {e}")
         except json.JSONDecodeError:
             raise ProcessorError("Failed to parse JSON output from zsh script.")
+
+
+if __name__ == '__main__':
+    PROCESSOR = LabelResolver()
+    PROCESSOR.execute_shell()

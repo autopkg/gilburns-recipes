@@ -15,7 +15,7 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>LabelResolver</string>
+            <string>com.github.gilburns.recipes.SharedProcessors/LabelResolver</string>
             <key>Arguments</key>
             <dict>
                 <key>label_name</key>
@@ -35,7 +35,7 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>LabelVerifier</string>
+            <string>com.github.gilburns.recipes.SharedProcessors/LabelVerifier</string>
             <key>Arguments</key>
             <dict>
                 <key>downloaded_file_path</key>
