@@ -8,6 +8,5 @@
     <string>com.github.gilburns.recipes.SharedProcessors</string>
     <key>MinimumVersion</key>
     <string>2.0</string>
-    <key>Process</key>
 </dict>
 </plist>
