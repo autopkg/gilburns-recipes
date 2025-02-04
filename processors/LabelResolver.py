@@ -11,18 +11,40 @@ class LabelResolver(Processor):
     """Resolves Installomator labels into variables."""
     description = "Resolves an Installomator label and fetches downloadURL."
     input_variables = {
-        "label_name": {"required": True, "description": "Installomator label to resolve."},
-        "local_label_path": {"required": False, "description": "Path to local label files."}
+        "label_name": {
+            "required": True,
+            "description": "Installomator label to resolve."
+        },
+        "local_label_path": {
+            "required": False,
+            "description": "Path to local label files."
+        }
     }
     output_variables = {
-        "name": {"description": "Resolved application name."},
-        "downloadURL": {"description": "Resolved download URL."},
-        "expectedTeamID": {"description": "Resolved Team ID for verification."},
-        "blockingProcesses": {"description": "List of processes that must be closed before installation."},
-        "type": {"description": "File type of the download (dmg, pkg, zip, etc.)."},
-        "file_extension": {"description": "Correct file extension for the downloaded file."},
-        "pathname": {"description": "Full path to the downloaded file."},
-        "filename": {"description": "Formatted filename for the downloaded file."}
+        "name": {
+            "description": "Resolved application name."
+        },
+        "downloadURL": {
+            "description": "Resolved download URL."
+        },
+        "expectedTeamID": {
+            "description": "Resolved Team ID for verification."
+        },
+        "blockingProcesses": {
+            "description": "List of processes that must be closed before installation."
+        },
+        "type": {
+            "description": "File type of the download (dmg, pkg, zip, etc.)."
+        },
+        "file_extension": {
+            "description": "Correct file extension for the downloaded file."
+        },
+        "pathname": {
+            "description": "Full path to the downloaded file."
+        },
+        "filename": {
+            "description": "Formatted filename for the downloaded file."
+        }
     }
 
     def main(self):
