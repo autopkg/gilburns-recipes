@@ -15,7 +15,8 @@ class LabelVerifier(DmgMounter):
 
     input_variables = {
         "downloaded_file_path": {"required": True, "description": "Path to the downloaded file."},
-        "expectedTeamID": {"required": True, "description": "The expected Apple Team ID for verification."}
+        "expectedTeamID": {"required": True, "description": "The expected Apple Team ID for verification."},
+        "DISABLE_TEAMID_VERIFICATION": {"required": False, "description": "If set to True, skips team ID verification."}
     }
 
     output_variables = {}
@@ -34,8 +35,13 @@ class LabelVerifier(DmgMounter):
     def main(self):
         file_path = self.env["downloaded_file_path"]
         expected_team_id = self.env["expectedTeamID"]
+        disable_verification = self.env.get("DISABLE_TEAMID_VERIFICATION", False)
         is_dmg = file_path.endswith(".dmg")
         mount_point = None
+
+        if disable_verification:
+            self.output("Team ID verification is disabled. Skipping verification.")
+            return
 
         try:
             if is_dmg:
