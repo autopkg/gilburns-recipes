@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Stub recipe to expose the Installomator processors.</string>
+    <key>Identifier</key>
+    <string>com.github.gilburns.recipes.SharedProcessors</string>
+    <key>MinimumVersion</key>
+    <string>2.0</string>
+</dict>
+</plist>
