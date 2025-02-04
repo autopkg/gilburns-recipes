@@ -80,11 +80,9 @@ To reference the processors in a recipe:
 ```
 
 ## Contributors
-Special thanks to [Elliot Jordan](https://github.com/homebysix) for assistance working out some of the issues I was having getting these fully functional.
+Special thanks to [Elliot Jordan](https://github.com/homebysix) for assistance working out some of the issues I was having getting these fully functional. 🚀
 
 If you have ideas on how to refine these processors, or want to submit PRs to refine these processors for AutoPkg workflows, please contribute!
 
 ---
-
-Let me know if any improvements or clarifications are needed! 🚀
 
