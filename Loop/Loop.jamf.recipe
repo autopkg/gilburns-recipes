@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Uploads the latest Loop package to Jamf Pro.</string>
+	<key>Identifier</key>
+	<string>com.github.gilburns.jamf.Loop</string>
+	<key>Input</key>
+	<dict>
+		<key>API_PASSWORD</key>
+		<string>your-api-password</string>
+		<key>API_USERNAME</key>
+		<string>your-api-username</string>
+		<key>CATEGORY</key>
+		<string>Applications</string>
+		<key>JSS_URL</key>
+		<string>https://your-jamf-instance.jamfcloud.com</string>
+		<key>NAME</key>
+		<string>Loop</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>2.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.gilburns.pkg.Loop</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>api_password</key>
+				<string>%API_PASSWORD%</string>
+				<key>api_username</key>
+				<string>%API_USERNAME%</string>
+				<key>category</key>
+				<string>%CATEGORY%</string>
+				<key>jss_url</key>
+				<string>%JSS_URL%</string>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+			</dict>
+			<key>Processor</key>
+			<string>JamfUploader</string>
+		</dict>
+	</array>
+</dict>
+</plist>
