@@ -10,9 +10,13 @@
 	<dict>
 		<key>NAME</key>
 		<string>Loop</string>
+		<key>PKG_ID</key>
+		<string>com.github.mrkai77.loop</string>
+		<key>PKG_VERSION</key>
+		<string>%version%</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>2.3</string>
+	<string>2.0</string>
 	<key>ParentRecipe</key>
 	<string>com.github.gilburns.download.Loop</string>
 	<key>Process</key>
@@ -20,11 +24,47 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>app_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Loop.app</string>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+				<key>pkgroot_dirs</key>
+				<dict>
+					<key>Applications</key>
+					<string>0775</string>
+				</dict>
 			</dict>
 			<key>Processor</key>
-			<string>AppPkgCreator</string>
+			<string>PkgRootCreator</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Applications/%NAME%.app</string>
+				<key>source_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/*.app</string>
+			</dict>
+			<key>Processor</key>
+			<string>Copier</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_request</key>
+				<dict>
+					<key>id</key>
+					<string>%PKG_ID%</string>
+					<key>install_location</key>
+					<string>/</string>
+					<key>pkgname</key>
+					<string>%NAME%.pkg</string>
+					<key>root</key>
+					<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+					<key>version</key>
+					<string>%PKG_VERSION%</string>
+				</dict>
+			</dict>
+			<key>Processor</key>
+			<string>PkgCreator</string>
 		</dict>
 	</array>
 </dict>

@@ -8,8 +8,12 @@
 	<string>com.github.gilburns.munki.Loop</string>
 	<key>Input</key>
 	<dict>
+		<key>MUNKI_ICON</key>
+		<string>%RECIPE_CACHE_DIR%/%NAME%.png</string>
+		<key>MUNKI_PKGINFO</key>
+		<string>%RECIPE_CACHE_DIR%/%NAME%.pkginfo</string>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/%NAME%</string>
+		<string>apps/Loop</string>
 		<key>NAME</key>
 		<string>Loop</string>
 		<key>pkginfo</key>
@@ -31,7 +35,7 @@
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>2.3</string>
+	<string>2.0</string>
 	<key>ParentRecipe</key>
 	<string>com.github.gilburns.download.Loop</string>
 	<key>Process</key>
@@ -50,6 +54,8 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>icon_path</key>
+				<string>%MUNKI_ICON%</string>
 				<key>pkg_path</key>
 				<string>%dmg_path%</string>
 				<key>repo_subdirectory</key>
