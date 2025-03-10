@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Hoppscotch Desktop App is a cross-platform desktop application that helps you create and manage API requests. Downloads the latest version of Hoppscotch.
 
-To download Intel use: "x86" in the ARCHITECTURE and "x86" in DOWNLOAD_ARCH variable (Blank value)
+To download Intel use: "x86_64" in the ARCHITECTURE and "x64" in DOWNLOAD_ARCH variable (Blank value)
 
 To Download Apple Silicon use: "arm64" in the ARCHITECTURE and "aarch64" in DOWNLOAD_ARCH variable (Default value)</string>
 	<key>Identifier</key>
@@ -28,19 +28,10 @@ To Download Apple Silicon use: "arm64" in the ARCHITECTURE and "aarch64" in DOWN
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>asset_regex</key>
-				<string>Hoppscotch_mac_%DOWNLOAD_ARCH%\.dmg</string>
-				<key>github_repo</key>
-				<string>hoppscotch/releases</string>
-			</dict>
-			<key>Processor</key>
-			<string>GitHubReleasesInfoProvider</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
 				<key>filename</key>
-				<string>%NAME%-%version%.dmg</string>
+				<string>%NAME%-%ARCHITECTURE%.dmg</string>
+				<key>url</key>
+				<string>https://github.com/hoppscotch/releases/releases/latest/download/Hoppscotch_mac_%DOWNLOAD_ARCH%.dmg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -66,7 +57,7 @@ To Download Apple Silicon use: "arm64" in the ARCHITECTURE and "aarch64" in DOWN
 				<key>input_plist_path</key>
 				<string>%pathname%/Hoppscotch.app/Contents/Info.plist</string>
 				<key>plist_version_key</key>
-				<string>CFBundleVersion</string>
+				<string>CFBundleShortVersionString</string>
 			</dict>
 			<key>Processor</key>
 			<string>Versioner</string>
